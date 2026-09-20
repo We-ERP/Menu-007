@@ -1,4 +1,4 @@
-/* 007 brand refresh: restore the original dark/gold page background and use the supplied 007 mark. */
+/* 007 brand refresh: restored page background and uploaded logo treatment. */
 :root {
   --brand-red: #e9003f;
   --brand-red-dark: #9b002a;
@@ -7,7 +7,6 @@
   --brand-glow: rgba(233, 0, 63, .42);
 }
 
-/* Keep the original light content area; only the header/hero use the brand colors. */
 body { background: var(--bg); }
 .topbar { background: var(--black); border-bottom: 2px solid transparent; border-image: var(--gold-grad) 1; }
 .topbar__in { max-width: 980px; }
@@ -15,14 +14,10 @@ body { background: var(--bg); }
 .brand::after { content: 'CAFE & RESTAURANT'; position: absolute; top: 100%; right: 50%; transform: translateX(50%) skew(10deg); white-space: nowrap; font: 700 7px/1 Arial, sans-serif; letter-spacing: 1.2px; color: #fff; opacity: .9; }
 .brand__gold { color: var(--brand-white); background: none; -webkit-text-fill-color: var(--brand-white); }
 .brand__red { color: var(--brand-red); margin-inline-start: 0; }
-.hero { padding-top: 30px; background: radial-gradient(ellipse 70% 90% at 50% 0%, rgba(212,175,55,.22), transparent 70%), radial-gradient(ellipse 45% 60% at 100% 100%, rgba(242,167,184,.16), transparent 70%), var(--black); }
-.hero .chip { width: 146px; padding: 7px; background: repeating-conic-gradient(from 0deg, var(--brand-red) 0 12deg, #fff 12deg 24deg); box-shadow: 0 0 0 2px var(--black), 0 0 0 4px var(--brand-red-dark), 0 0 34px var(--brand-glow); }
-.hero .chip__in { border-color: var(--brand-red); box-shadow: inset 0 0 0 5px var(--black), inset 0 0 0 6px rgba(255,255,255,.5); }
-.hero .chip__gold { color: #fff; background: none; -webkit-text-fill-color: #fff; }
-.hero .chip__red { color: var(--brand-red); }
-.hero__en { color: var(--gold-light); }
-.hero__rule i { background: linear-gradient(90deg, transparent, var(--gold)); }
-.hero__rule b { background: var(--rose); }
+
+.hero--logo { padding: 22px 16px 28px; background: radial-gradient(ellipse 70% 90% at 50% 0%, rgba(212,175,55,.22), transparent 70%), radial-gradient(ellipse 45% 60% at 100% 100%, rgba(242,167,184,.16), transparent 70%), var(--black); }
+.main-logo { display: block; width: min(100%, 900px); height: auto; max-height: 270px; object-fit: contain; margin: 0 auto; filter: drop-shadow(0 10px 24px rgba(233,0,63,.2)); }
+.hero--logo + .viewer { padding-top: 24px; }
 
 .contact-strip { max-width: 760px; margin: -2px auto 22px; padding: 12px 16px; display: flex; justify-content: center; align-items: center; gap: 10px; flex-wrap: wrap; background: linear-gradient(135deg, #111117, #08080c); border: 1px solid rgba(212,175,55,.55); border-radius: 0 0 18px 18px; box-shadow: 0 8px 30px rgba(0,0,0,.2); }
 .contact-strip__title { width: 100%; text-align: center; color: #fff; font-size: 13px; font-weight: 800; margin-bottom: 2px; }
@@ -40,4 +35,4 @@ body { background: var(--bg); }
 .contact-admin button { flex: 1; min-height: 40px; border: 0; border-radius: 8px; font-weight: 800; cursor: pointer; }
 .contact-admin__save { background: var(--brand-red); color: #fff; }
 .contact-admin__close { background: #eee; color: #111; }
-@media (max-width: 500px) { .contact-link { min-width: 100px; padding-inline: 8px; } .brand { font-size: 34px; } }
+@media (max-width: 500px) { .contact-link { min-width: 100px; padding-inline: 8px; } .brand { font-size: 34px; } .hero--logo { padding-inline: 8px; } .main-logo { max-height: 180px; } }
