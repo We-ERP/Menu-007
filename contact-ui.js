@@ -14,11 +14,11 @@
 
   function render() {
     let strip = $('#contactStrip');
-    if (!strip) { strip = document.createElement('section'); strip.id = 'contactStrip'; strip.className = 'contact-strip'; $('.hero')?.insertAdjacentElement('afterend', strip); }
+    if (!strip) { strip = document.createElement('section'); strip.id = 'contactStrip'; strip.className = 'contact-strip'; $('.hero')?.insertAdjacentElement('beforebegin', strip); }
     strip.innerHTML = `<div class="contact-strip__title">تواصل معانا</div>
-      <a class="contact-link contact-link--instagram" href="${esc(contacts.instagram)}" target="_blank" rel="noopener"><span class="contact-link__icon">◎</span>Instagram</a>
-      <a class="contact-link contact-link--facebook" href="${esc(contacts.facebook)}" target="_blank" rel="noopener"><span class="contact-link__icon">f</span>Facebook</a>
-      <a class="contact-link contact-link--whatsapp" href="${esc(contacts.whatsapp)}" target="_blank" rel="noopener"><span class="contact-link__icon">◔</span>WhatsApp</a>`;
+      <a class="contact-link contact-link--instagram" href="${esc(contacts.instagram)}" target="_blank" rel="noopener" aria-label="Instagram"><span class="contact-link__icon">◎</span><span>Instagram</span></a>
+      <a class="contact-link contact-link--facebook" href="${esc(contacts.facebook)}" target="_blank" rel="noopener" aria-label="Facebook"><span class="contact-link__icon">f</span><span>Facebook</span></a>
+      <a class="contact-link contact-link--whatsapp" href="${esc(contacts.whatsapp)}" target="_blank" rel="noopener" aria-label="WhatsApp"><span class="contact-link__icon">◔</span><span>WhatsApp</span></a>`;
   }
 
   async function loadContacts() {
@@ -32,12 +32,7 @@
     if (!token) return openLogin();
     closeEditor();
     const box = document.createElement('section'); box.id = 'contactAdmin'; box.className = 'contact-admin';
-    box.innerHTML = `<h3>تعديل روابط التواصل</h3>
-      <p style="margin:0 0 8px;color:#666;font-size:12px">المستخدم: ${esc(user)}</p>
-      <label>Instagram<input id="contactInstagram" value="${esc(contacts.instagram)}"></label>
-      <label>Facebook<input id="contactFacebook" value="${esc(contacts.facebook)}"></label>
-      <label>WhatsApp<input id="contactWhatsapp" value="${esc(contacts.whatsapp)}"></label>
-      <div class="contact-admin__actions"><button class="contact-admin__save" id="saveContacts">حفظ البيانات</button><button class="contact-admin__close" id="closeContacts">إغلاق</button></div>`;
+    box.innerHTML = `<h3>تعديل روابط التواصل</h3><p style="margin:0 0 8px;color:#666;font-size:12px">المستخدم: ${esc(user)}</p><label>Instagram<input id="contactInstagram" value="${esc(contacts.instagram)}"></label><label>Facebook<input id="contactFacebook" value="${esc(contacts.facebook)}"></label><label>WhatsApp<input id="contactWhatsapp" value="${esc(contacts.whatsapp)}"></label><div class="contact-admin__actions"><button class="contact-admin__save" id="saveContacts">حفظ البيانات</button><button class="contact-admin__close" id="closeContacts">إغلاق</button></div>`;
     $('.hero')?.insertAdjacentElement('afterend', box);
     $('#closeContacts').onclick = closeEditor;
     $('#saveContacts').onclick = async () => {
